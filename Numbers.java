@@ -289,7 +289,7 @@ public class Numbers {
 			while (numbers.get(right) > numbers.get(pivot) && left < right)
 				right--;
 			int temp = numbers.get(left);
-			numbers.set(left, right);
+			numbers.set(left, numbers.get(right));
 			numbers.set(right, temp);
 			if (left < right) {
 				left++;
@@ -298,13 +298,13 @@ public class Numbers {
 		}
 		if (numbers.get(left) > numbers.get(pivot)) {
 			int temp = numbers.get(pivot);
-			numbers.set(pivot, left - 1);
+			numbers.set(pivot, numbers.get(left - 1));
 			numbers.set(left - 1, temp);
 			quickSort(start, left - 2);
 			quickSort(left, end);
 		} else {
 			int temp = numbers.get(pivot);
-			numbers.set(pivot, left);
+			numbers.set(pivot, numbers.get(left));
 			numbers.set(left, temp);
 			quickSort(start, left - 1);
 			quickSort(left + 1, end);
